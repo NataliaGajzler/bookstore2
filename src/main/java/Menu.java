@@ -22,6 +22,11 @@ public class Menu {
                 System.out.println("To lista książek: ");
                 ListOfBooks books = new ListOfBooks();
                 books.readAllLines();
+                System.out.println("Co chcesz zrobić? 3. Dodaj książkę  2. Wyjdź");
+                oneOrTwo = scanner.nextInt();
+                if (oneOrTwo == 3) {
+
+                }
 
                 System.out.println("Podaj liczbę, by wskazać co chcesz zrobić: ");
                 oneOrTwo = scanner.nextInt();
