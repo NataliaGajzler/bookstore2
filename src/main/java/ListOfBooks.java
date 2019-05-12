@@ -1,6 +1,3 @@
-import org.apache.commons.lang3.StringUtils;
-
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -9,7 +6,7 @@ import java.util.*;
 
 public class ListOfBooks {
 
-    private static List<String> booksList() {
+    private static List<Book> booksList() {
         List<Book> tempList = new ArrayList<>();
         Scanner read = null;
         try {
@@ -29,6 +26,7 @@ public class ListOfBooks {
             String categoryID = bookParts[6];
 
             Book book = new Book(title, isbn, year, bookCover, bookID, categoryID);
+            tempList.add(book);
         }
         return tempList;
     }

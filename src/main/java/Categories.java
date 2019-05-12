@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Categories {
 
-    private static List<String> listOfCategories() {
+    private static List<Category> listOfCategories() {
 
         List<Category> tempList = new ArrayList<>();
         Scanner read = null;
@@ -18,11 +18,11 @@ public class Categories {
         while (read.hasNextLine()) {
             String line = read.nextLine();
             String[] categoriesData = line.split(";");
+
             String name = categoriesData[1];
             String priority = categoriesData[2];
 
            Category category = new Category (name, priority);
-
 
         }
         return tempList;

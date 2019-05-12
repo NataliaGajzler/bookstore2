@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Authors {
 
-    private static List<String> listOfAuthors() {
+    private static List<Authors> listOfAuthors() {
 
         List<Authors> tempList = new ArrayList<>();
         Scanner read = null;
@@ -22,7 +22,6 @@ public class Authors {
             String age = authorsData[2];
 
             Author author = new Author(name, age);
-
 
         }
         return tempList;
