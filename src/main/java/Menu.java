@@ -1,12 +1,14 @@
-import java.sql.SQLOutput;
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
 public class Menu {
 
+    static {
+        System.out.println("My BOOKSTORE");
+    }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("1. Wyświetl listę książek:");
@@ -17,7 +19,10 @@ public class Menu {
 
         while (oneOrTwo != 2) {
             if (oneOrTwo == 1) {
-                System.out.println("To lista książek");
+                System.out.println("To lista książek: ");
+                ListOfBooks books = new ListOfBooks();
+                books.readAllLines();
+
                 System.out.println("Podaj liczbę, by wskazać co chcesz zrobić: ");
                 oneOrTwo = scanner.nextInt();
             } else {
