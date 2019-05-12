@@ -2,11 +2,11 @@ public class Book {
     private String title;
     private String isbn;
     private String year;
-    private BookCover bookCover;
-    private int bookID;
-    private int categoryID;
+    private String bookCover;
+    private String bookID;
+    private String categoryID;
 
-    public Book(String title, String isbn, String year, BookCover bookCover, int bookID, int categoryID) {
+    public Book(String title, String isbn, String year, String bookCover, String bookID, String categoryID) {
         this.title = title;
         this.isbn = isbn;
         this.year = year;
@@ -27,15 +27,15 @@ public class Book {
         return year;
     }
 
-    public BookCover getBookCover() {
+    public String getBookCover() {
         return bookCover;
     }
 
-    public int getBookID() {
+    public String getBookID() {
         return bookID;
     }
 
-    public int getCategoryID() {
+    public String getCategoryID() {
         return categoryID;
     }
 }

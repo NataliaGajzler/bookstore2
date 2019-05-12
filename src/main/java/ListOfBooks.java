@@ -3,8 +3,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.*;
@@ -21,7 +19,16 @@ public class ListOfBooks {
         }
         while (read.hasNextLine()) {
             String line = read.nextLine();
-            line.split(;) //todo split
+            String[] bookParts = line.split(";");
+
+            String title = bookParts[1];
+            String isbn = bookParts[2];
+            String year = bookParts[3];
+            String bookCover = bookParts[4];
+            String bookID = bookParts[5];
+            String categoryID = bookParts[6];
+
+            Book book = new Book(title, isbn, year, bookCover, bookID, categoryID);
         }
         return tempList;
     }
@@ -30,7 +37,7 @@ public class ListOfBooks {
         System.out.println(booksList());
     }
 
-    public static Book newBook() {
+    public static Book createABook() {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -46,23 +53,22 @@ public class ListOfBooks {
         acceptYear(year);
 
         System.out.println("Podaj rodzaj oprawy (T - twarda; M- miękka");
-        BookCover cover = scanner.next(); //todo enum?
+        String cover = scanner.next();
 
         System.out.println("Podaj ID autorów książki");
-        int idAutor = scanner.nextInt();
+        String idAutor = scanner.next();
 
         System.out.println("Podaj ID kategorii");
-        int idCategory = scanner.nextInt();
+        String idCategory = scanner.next();
 
         Book bookToAdd = new Book(title, isbn, year, cover, idAutor, idCategory);
         return bookToAdd;
     }
 
-    static List<Book> updateBookList() {
+    static void addABook() {
         List<Book> tempList = new ArrayList<>();
         tempList.add(booksList()); //todo dodać do listy
-        tempList.add(newBook());
-        return tempList;
+        tempList.add(createABook());
     }
 
     private static boolean isISBNCorrect(String isbn) {
@@ -82,12 +88,11 @@ public class ListOfBooks {
 
         if (checkISBN == false) {
             isbnTemp = scanner.next();
-        } else{
+        } else {
             return isbn;
         }
         return isbnTemp;
     }
-
 
     private static boolean isYearCorrect(String year) {
         if (year.length() == 4) {
@@ -111,7 +116,7 @@ public class ListOfBooks {
         return yearTemp;
     }
 
-    public static void remove (String name) {
+    public static void remove(String name) {
 
 
     }
