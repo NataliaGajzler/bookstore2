@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class Authors {
 
-    private static List<Authors> listOfAuthors() {
+    private static List<Author> listOfAuthors() {
 
-        List<Authors> tempList = new ArrayList<>();
+        List<Author> tempList = new ArrayList<>();
         Scanner read = null;
         try {
             read = new Scanner(new File("src\\main\\resources\\authors.csv"));
@@ -22,6 +22,7 @@ public class Authors {
             String age = authorsData[2];
 
             Author author = new Author(name, age);
+            tempList.add(author);
 
         }
         return tempList;

@@ -1,5 +1,4 @@
 import java.io.FileNotFoundException;
-import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -25,7 +24,9 @@ public class Menu {
                 System.out.println("Co chcesz zrobić? 3. Dodaj książkę  2. Wyjdź");
                 oneOrTwo = scanner.nextInt();
                 if (oneOrTwo == 3) {
-
+                    ListOfBooks books2 = new ListOfBooks();
+                    books2.createABook();
+                    books2.addABook(); //todo zapętla  dodanie książki, dlaczego?
                 }
 
                 System.out.println("Podaj liczbę, by wskazać co chcesz zrobić: ");

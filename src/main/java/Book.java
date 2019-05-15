@@ -6,7 +6,7 @@ public class Book {
     private String bookID;
     private String categoryID;
 
-    public Book(String title, String isbn, String year, String bookCover, String bookID, String categoryID) {
+    Book(String title, String isbn, String year, String bookCover, String bookID, String categoryID) {
         this.title = title;
         this.isbn = isbn;
         this.year = year;
@@ -37,5 +37,17 @@ public class Book {
 
     public String getCategoryID() {
         return categoryID;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", year='" + year + '\'' +
+                ", bookCover='" + bookCover + '\'' +
+                ", bookID='" + bookID + '\'' +
+                ", categoryID='" + categoryID + '\'' +
+                '}';
     }
 }

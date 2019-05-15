@@ -23,6 +23,7 @@ public class Categories {
             String priority = categoriesData[2];
 
            Category category = new Category (name, priority);
+           tempList.add(category);
 
         }
         return tempList;

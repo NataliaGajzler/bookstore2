@@ -1,12 +1,10 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.*;
 
 public class ListOfBooks {
 
-    private static List<Book> booksList() {
+     private static List<Book> booksList() {
         List<Book> tempList = new ArrayList<>();
         Scanner read = null;
         try {
@@ -35,7 +33,9 @@ public class ListOfBooks {
         System.out.println(booksList());
     }
 
-    public static Book createABook() {
+
+
+    static Book createABook() {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -44,14 +44,14 @@ public class ListOfBooks {
 
         System.out.println("Podaj ISBN (od 10 do 13 cyfr): ");
         String isbn = scanner.next();
-        acceptISBN(isbn);
+        acceptISBN(isbn); // metoda sprawdza czy isbn jest poprawny, w razie czego prosi o podanie nowego
 
         System.out.println("Podaj rok wydania: ");
         String year = scanner.next();
-        acceptYear(year);
+        acceptYear(year); // metoda sprawdza czy rok jest poprawny, w razie czego prosi o podanie nowego
 
         System.out.println("Podaj rodzaj oprawy (T - twarda; M- miękka");
-        String cover = scanner.next();
+        String cover = scanner.next(); // w jaki sposób moge to powiązać z moim enumem?
 
         System.out.println("Podaj ID autorów książki");
         String idAutor = scanner.next();
@@ -65,7 +65,7 @@ public class ListOfBooks {
 
     static void addABook() {
         List<Book> tempList = new ArrayList<>();
-        tempList.add(booksList()); //todo dodać do listy
+        tempList.addAll(booksList()); //todo dodać do listy
         tempList.add(createABook());
     }
 
@@ -84,7 +84,7 @@ public class ListOfBooks {
         String isbnTemp;
         boolean checkISBN = isISBNCorrect(isbn);
 
-        if (checkISBN == false) {
+        if (!checkISBN) {
             isbnTemp = scanner.next();
         } else {
             return isbn;
@@ -93,7 +93,7 @@ public class ListOfBooks {
     }
 
     private static boolean isYearCorrect(String year) {
-        if (year.length() == 4) {
+        if (year.length() == 4 && (year.startsWith("1") || year.startsWith("2"))) {
             return true;
         } else {
             System.out.println("Podaj poprawny rok:");
@@ -106,7 +106,7 @@ public class ListOfBooks {
         String yearTemp;
         boolean checkYear = isYearCorrect(year);
 
-        if (checkYear == false) {
+        if (!checkYear) {
             yearTemp = scanner.next();
         } else {
             return year;

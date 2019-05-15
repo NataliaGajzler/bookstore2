@@ -1,6 +1,6 @@
 public class Category {
-    String name;
-    String priority;
+    private String name;
+    private String priority;
 
     public Category(String name, String priority) {
         this.name = name;
