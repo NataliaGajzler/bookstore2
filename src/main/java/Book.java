@@ -1,12 +1,12 @@
 public class Book {
     private String title;
     private String isbn;
-    private String year;
+    private int year;
     private String bookCover;
     private String bookID;
     private String categoryID;
 
-    Book(String title, String isbn, String year, String bookCover, String bookID, String categoryID) {
+    Book(String title, String isbn, int year, String bookCover, String bookID, String categoryID) {
         this.title = title;
         this.isbn = isbn;
         this.year = year;
@@ -23,7 +23,7 @@ public class Book {
         return isbn;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
@@ -41,13 +41,11 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", year='" + year + '\'' +
-                ", bookCover='" + bookCover + '\'' +
-                ", bookID='" + bookID + '\'' +
-                ", categoryID='" + categoryID + '\'' +
-                '}';
+        return  "Title: " + title + "\n" +
+                "ISBN: " + isbn + "\n" +
+                "Year: " + year + "\n" +
+                "Book cover: " + bookCover + "\n" +
+                "Book ID: " + bookID + "\n" +
+                "Category ID: " + categoryID + "\n";
     }
 }

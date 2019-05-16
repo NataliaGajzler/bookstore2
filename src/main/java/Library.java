@@ -2,15 +2,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class ListOfBooks {
+public class Library {
 
-     private static List<Book> booksList() {
+    List<Book> listOfBooks = Library.booksFromFile();
+
+    private static List<Book> booksFromFile() {
         List<Book> tempList = new ArrayList<>();
         Scanner read = null;
         try {
             read = new Scanner(new File("src\\main\\resources\\books.csv"));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Nie udało się wczytać książki :( ");
         }
         while (read.hasNextLine()) {
             String line = read.nextLine();
@@ -18,7 +20,7 @@ public class ListOfBooks {
 
             String title = bookParts[1];
             String isbn = bookParts[2];
-            String year = bookParts[3];
+            int year = Integer.parseInt(bookParts[3]);
             String bookCover = bookParts[4];
             String bookID = bookParts[5];
             String categoryID = bookParts[6];
@@ -29,13 +31,7 @@ public class ListOfBooks {
         return tempList;
     }
 
-    void readAllLines() {
-        System.out.println(booksList());
-    }
-
-
-
-    static Book createABook() {
+    static Book createBook() {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -44,14 +40,12 @@ public class ListOfBooks {
 
         System.out.println("Podaj ISBN (od 10 do 13 cyfr): ");
         String isbn = scanner.next();
-        acceptISBN(isbn); // metoda sprawdza czy isbn jest poprawny, w razie czego prosi o podanie nowego
+        acceptISBN(isbn); // todo validate tak jak year
 
-        System.out.println("Podaj rok wydania: ");
-        String year = scanner.next();
-        acceptYear(year); // metoda sprawdza czy rok jest poprawny, w razie czego prosi o podanie nowego
+        int year = readYear(); // todo obsłużyć jak litery
 
         System.out.println("Podaj rodzaj oprawy (T - twarda; M- miękka");
-        String cover = scanner.next(); // w jaki sposób moge to powiązać z moim enumem?
+        String cover = scanner.next(); // todo wyjątek jak user poda cos innego
 
         System.out.println("Podaj ID autorów książki");
         String idAutor = scanner.next();
@@ -59,22 +53,17 @@ public class ListOfBooks {
         System.out.println("Podaj ID kategorii");
         String idCategory = scanner.next();
 
-        Book bookToAdd = new Book(title, isbn, year, cover, idAutor, idCategory);
-        return bookToAdd;
+        return new Book(title, isbn, year, cover, idAutor, idCategory);
     }
 
-    static void addABook() {
-        List<Book> tempList = new ArrayList<>();
-        tempList.addAll(booksList()); //todo dodać do listy
-        tempList.add(createABook());
+    void addBook(Book book) {
+        listOfBooks.add(book);
     }
 
     private static boolean isISBNCorrect(String isbn) {
 
         if (isbn.length() >= 10 && isbn.length() <= 13) {
             return true;
-        } else {
-            System.out.println("Niepoprawny ISBN. Podaj numer raz jeszcze:");
         }
         return false;
     }
@@ -85,6 +74,7 @@ public class ListOfBooks {
         boolean checkISBN = isISBNCorrect(isbn);
 
         if (!checkISBN) {
+            System.out.println("Niepoprawny ISBN. Podaj numer raz jeszcze:");
             isbnTemp = scanner.next();
         } else {
             return isbn;
@@ -92,26 +82,21 @@ public class ListOfBooks {
         return isbnTemp;
     }
 
-    private static boolean isYearCorrect(String year) {
-        if (year.length() == 4 && (year.startsWith("1") || year.startsWith("2"))) {
-            return true;
-        } else {
-            System.out.println("Podaj poprawny rok:");
-        }
-        return false;
+    private static boolean isYearCorrect(int year) {
+        return (year > 1000 && year < 2019);
     }
 
-    private static String acceptYear(String year) {
+    private static int readYear() {
         Scanner scanner = new Scanner(System.in);
-        String yearTemp;
-        boolean checkYear = isYearCorrect(year);
-
-        if (!checkYear) {
-            yearTemp = scanner.next();
-        } else {
-            return year;
+        while (true) {
+            System.out.println("Podaj rok wydania: ");
+            int year = scanner.nextInt();
+            if (isYearCorrect(year)) {
+                return year;
+            } else {
+                System.out.println("Niepoprawny rok.");
+            }
         }
-        return yearTemp;
     }
 
     public static void remove(String name) {
