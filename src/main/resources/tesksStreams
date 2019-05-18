@@ -1,0 +1,9 @@
+1. X    Znajdź książkę o podanym ISBN. Metoda przyjmuje 2 parametry (isbn, lista wszystkich książek) i zwraca podaną książkę.
+2. X    Zwróć dwie ostatnie książki.
+3. Zwróć najwcześniej wydana książkę.
+4. Zwróć najpóźniej wydana książkę.
+5. X    Zwróć sumę lat wydania wszystkich książek.
+6. X    Zwróć liczbę książek wydanych po 2007 roku.
+7. X    Zwróć informacje o tym czy wszystkie książki w naszym katalogu są wydane po 2000 roku.
+8. X    Zwróć średni rok wydania książki w naszym katalogu.
+9. X    Zwróć informacje o tym czy jakakolwiek książka w naszym katalogu jest wydana przed  2003 rokiem.

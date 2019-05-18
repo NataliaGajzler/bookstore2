@@ -1,12 +1,16 @@
 public class Book {
+    private int identifier;
     private String title;
-    private String isbn;
+    private long isbn;
     private int year;
     private String bookCover;
     private String bookID;
     private String categoryID;
 
-    Book(String title, String isbn, int year, String bookCover, String bookID, String categoryID) {
+    private Category category; //todo zastąpić Stringi ID obiektami
+
+    Book(String title, long isbn, int year, String bookCover, String bookID, String categoryID) {
+        this.identifier = identifier;
         this.title = title;
         this.isbn = isbn;
         this.year = year;
@@ -15,11 +19,13 @@ public class Book {
         this.categoryID = categoryID;
     }
 
+    public int getIdentifier() { return identifier; }
+
     public String getTitle() {
         return title;
     }
 
-    public String getIsbn() {
+    public long getIsbn() {
         return isbn;
     }
 
@@ -41,7 +47,8 @@ public class Book {
 
     @Override
     public String toString() {
-        return  "Title: " + title + "\n" +
+        return "Identifier: " + identifier + "\n" +
+                "Title: " + title + "\n" +
                 "ISBN: " + isbn + "\n" +
                 "Year: " + year + "\n" +
                 "Book cover: " + bookCover + "\n" +
