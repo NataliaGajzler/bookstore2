@@ -13,7 +13,7 @@
 13.   Y Posortuj książki po roku wydania zaczynając od wydanej najpóźniej.
 14.   Y Posortuj książki po roku wydania zaczynając od wydanej najwcześniej.
 15.   Y Podziel listę książek na 3 listy po 2 książki i zwróć z metody. (*) (bez streama)
-16.     Pogrupuj książki po roku wydania. Metoda powinna zwrócić Map<Integer, List<Book>> gdzie kluczem jest rok wydania a wartością lista książek wydana w tym roku. (*)
+16.   Y Pogrupuj książki po roku wydania. Metoda powinna zwrócić Map<Integer, List<Book>> gdzie kluczem jest rok wydania a wartością lista książek wydana w tym roku. (*)
 17.     Podziel książki na te wydane po 2009 roku i pozostałe. Metoda powinna zwrócić Map<Boolean, List<Book>> gdzie kluczem jest boolean oznaczający czy została wydana po 2009 a wartością będą listy książek. (*)
 
 

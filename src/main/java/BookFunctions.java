@@ -257,17 +257,22 @@ public class BookFunctions {
     //Task16 Pogrupuj książki po roku wydania. Metoda powinna zwrócić Map<Integer,
     // List<Book>> gdzie kluczem jest rok wydania a wartością lista książek wydana w tym roku. (*)
 
-    Map<Integer, List<Book>> mapBooks(List<Book> givenList) {
-        List<Book> tempList = new ArrayList<>();
-
+    Map<Integer, List<Book>> mapOfBooks(List<Book> givenList) {
+        Map<Integer, List<Book>> tempMap = givenList.stream()
+                .collect(Collectors.groupingBy(book -> book.getYear()));
+        return tempMap;
     }
 
     //Task17 Podziel książki na te wydane po 2009 roku i pozostałe. Metoda powinna zwrócić
     // Map<Boolean, List<Book>> gdzie kluczem jest boolean oznaczający czy została wydana po 2009
     // a wartością będą listy książek. (*)
 
-    Map<Boolean, List<Book>> mapBooks(List<Book> givenList) {
+    Map<Boolean, List<Book>> mapOfBooks2(List<Book> givenList) {
 
+        Map<Boolean, List<Book>> tempMap =givenList.stream()
+                .collect(Collectors.groupingBy(book -> book.getYear()>2009));
+
+        return tempMap;
 
     }
 

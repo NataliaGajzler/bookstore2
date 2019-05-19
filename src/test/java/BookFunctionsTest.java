@@ -126,7 +126,13 @@ public class BookFunctionsTest {
 
 
 
+    @Test
+    //17
 
+    void mapOfBook2 () {
+        Map<Boolean, List<Book>> mapOfBooks2009 = bookFunctions.mapOfBooks2(bookTestList);
+        Assertions.assertEquals(mapOfBooks2009.containsKey(false), false);
+    }
 
 
 }

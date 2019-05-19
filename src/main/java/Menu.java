@@ -25,10 +25,10 @@ public class Menu {
                     Book newBook = library.createBook();
                     library.addBook(newBook);
                     break;
-                case "3":
+                case "4":
                     System.out.println("Do zobaczenia! :) ");
                     return;
-                case "4":
+                case "3":
 //                    library.saveToFile(library.listOfBooks);
                     System.out.println("Zapisane, sprawdź nowy plik z listą książek");
                 default:
@@ -42,8 +42,8 @@ public class Menu {
     private void showMenu() {
         System.out.println("1. Wyświetl listę książek: ");
         System.out.println("2. Dodaj książkę do listy ");
-        System.out.println("3. Wyjdź");
-        System.out.println("4. Zapisz listę książek do pliku");
+        System.out.println("3. Zapisz listę książek do pliku ");
+        System.out.println("4. Wyjdź");
         System.out.println("Podaj liczbę, by wskazać co chcesz zrobić: ");
     }
 }
