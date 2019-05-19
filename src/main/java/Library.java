@@ -116,7 +116,7 @@ public class Library {
         }
 
         private static boolean isYearCorrect ( int year){
-            return (year > 1000 && year < 2020);
+            return (year > 1700 && year < 2020);
         }
 
         private static int readYear () {
