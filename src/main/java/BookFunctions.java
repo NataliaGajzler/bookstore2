@@ -71,15 +71,17 @@ public class BookFunctions {
     //Task 3
     //Pętla
     Book newestBook(List<Book> givenList) {
-        return null; //todo Pętla
+        Book newestBook = null;
+        for (int i = 0; i < givenList.size(); i++) {
+            Book firstBook = givenList.get(i);
+            if (newestBook == null || newestBook.getYear() < firstBook.getYear()) {
+                newestBook = firstBook;
+            }
+        }
+        return newestBook;
     }
 
     // Strumień
-    Book newestBookStream(List<Book> givenList) {
-        return null;
-    }
-
-
     Optional<Book> findOldestYearOptional(List<Book> bookList) {
         BookComparator bookComparator = new BookComparator();
 
@@ -90,10 +92,13 @@ public class BookFunctions {
     //Task 4
 
     Book oldestBook(List<Book> givenList) {
-        for (Book book : givenList) {
-            //todo pętla
+        Book oldsestBook = null;
+        for (Book firstBook : givenList) {
+            if (oldsestBook == null || oldsestBook.getYear() > firstBook.getYear()) {
+                oldsestBook = firstBook;
+            }
         }
-        return null;
+        return oldsestBook;
     }
 
     //Stream
@@ -191,20 +196,36 @@ public class BookFunctions {
 
 
     //Task10
+    List<Book> startsWithCAfter2007Loop(List<Book> givenList) {
+        List<Book> tempList = new ArrayList<>();
+        for (Book book : givenList) {
+            if (book.getTitle().startsWith("C") && book.getYear() > 2007) {
+                tempList.add(book);
+            }
+        }
+        return tempList;
+    }
+
     //Stream
 
     List<Book> startsWithCAfter2007(List<Book> givenList) {
-        List<Book> tempList = new ArrayList<>();
-        List<Book> tempList2 = new ArrayList<>();
-        tempList = givenList.stream()
-                .filter(book -> book.getYear() > 2007).collect(Collectors.toList());
-        tempList2 = tempList.stream()
+        return givenList.stream()
+                .filter(book -> book.getYear() > 2007)
                 .filter(book -> book.getTitle().startsWith("C"))
                 .collect(Collectors.toList());
-        return tempList2;
     }
 
     //Task11
+    List<Book> evenYearBooks(List<Book> givenList) {
+        List<Book> tempList = new ArrayList<>();
+        for (Book book : givenList) {
+            if (book.getYear() % 2 == 0) {
+                tempList.add(book);
+            }
+        }
+        return tempList;
+    }
+
     //Stream
 
     List<String> TitlesYearDivideBy2(List<Book> givenList) {
@@ -221,16 +242,29 @@ public class BookFunctions {
     }
 
     //Task12 Zwróć mapę, która będzie miała klucz isbn i wartość obiekt Book (Map<String, Book>)
+    Map<Long, Book> bookMapLoop (List<Book>givenList) {
+        Map<Long, Book> tempMap = new HashMap<>();
+        for (Book book : givenList) {
+            tempMap.put(book.getIsbn(), book);
+        }
+        return tempMap;
+    }
 
     Map<Long, Book> bookMap(List<Book> givenList) {
         return givenList.stream().collect(Collectors.toMap(Book::getIsbn, book -> book));
     }
 
     //Task 13 Posortuj książki po roku wydania zaczynając od wydanej najpóźniej.
+    List<Book> fromYoungest(List<Book> givenList) {
+        Collections.sort(givenList, new BookComparator());
+        Collections.reverse(givenList);
+        return givenList;
+    }
 
+
+//Stream
     List<Book> fromYoungestStream(List<Book> givenList) {
         List<Book> tempList = new ArrayList<>();
-
         BookComparator bookComparator = new BookComparator();
         tempList = givenList.stream().sorted(bookComparator).collect(Collectors.toList());
         Collections.reverse(tempList);
@@ -269,8 +303,8 @@ public class BookFunctions {
 
     Map<Boolean, List<Book>> mapOfBooks2(List<Book> givenList) {
 
-        Map<Boolean, List<Book>> tempMap =givenList.stream()
-                .collect(Collectors.groupingBy(book -> book.getYear()>2009));
+        Map<Boolean, List<Book>> tempMap = givenList.stream()
+                .collect(Collectors.groupingBy(book -> book.getYear() > 2009));
 
         return tempMap;
 

@@ -22,7 +22,7 @@ public class BookFunctionsTest {
         Book book1 = new Book("AAA", 1234567890L, 2008, "T", "2", "1");
         Book book2 = new Book("BBB", 1234787890, 2007, "T", "2", "3");
         Book book3 = new Book("CCC", 1234567890, 2005, "T", "3", "1");
-        Book book4 = new Book("DDD", 1234117890, 2010, "T", "3", "1");
+        Book book4 = new Book("DDD", 1234117890, 2016, "T", "3", "1");
         Book book5 = new Book("EEE", 1231117890, 2016, "T", "3", "1");
         Book book6 = new Book("FFF", 1234533330, 1999, "T", "3", "1");
         bookTestList.add(book1);
@@ -56,6 +56,13 @@ public class BookFunctionsTest {
     void test2LastBooksOther() {
         List<Book> last2BooksOther = bookFunctions.lastTwoBooksother(bookTestList);
         assertThat(last2BooksOther).hasSize(2).contains(bookTestList.get(4), bookTestList.get(5));
+    }
+
+    @Test
+    //3
+    void testNewestBook () {
+        Book newestBook = bookFunctions.newestBook(bookTestList);
+        Assertions.assertEquals(2016, newestBook.getYear());
     }
 
     @Test

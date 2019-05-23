@@ -29,7 +29,7 @@ public class Menu {
                     System.out.println("Do zobaczenia! :) ");
                     return;
                 case "3":
-//                    library.saveToFile(library.listOfBooks);
+                    library.saveToFile(library.listOfBooks);
                     System.out.println("Zapisane, sprawdź nowy plik z listą książek");
                 default:
                     System.out.println("Możesz wybrać tylko 1, 2 lub 3! Wpisz poprawną liczbę: ");

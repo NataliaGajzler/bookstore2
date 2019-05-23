@@ -1,16 +1,16 @@
 1. X  Y  Znajdź książkę o podanym ISBN. Metoda przyjmuje 2 parametry (isbn, lista wszystkich książek) i zwraca podaną książkę.
 2. X  Z(sublist)  Zwróć dwie ostatnie książki.
-3.    Y   Zwróć najwcześniej wydana książkę.
-4.    Y    Zwróć najpóźniej wydana książkę.
+3. X  Y    Zwróć najwcześniej wydana książkę.
+4. X  Y    Zwróć najpóźniej wydana książkę.
 5. X  Y Zwróć sumę lat wydania wszystkich książek.
 6. X  Y Zwróć liczbę książek wydanych po 2007 roku.
 7. X  Y Zwróć informacje o tym czy wszystkie książki w naszym katalogu są wydane po 2000 roku.
 8. X  Y Zwróć średni rok wydania książki w naszym katalogu.
 9. X  Y Zwróć informacje o tym czy jakakolwiek książka w naszym katalogu jest wydana przed  2003 rokiem.
-10.   Y  Zwróć wszystkie książki, których tytuł zaczyna się od litery “C” i były one wydane po 2007 roku.
-11.   Y Zwróć tytuły wszystkich książek, których rok jest podzielny przez 2.
-12.   Y Zwróć mapę, która będzie miała klucz isbn i wartość obiekt Book (Map<String, Book>).
-13.   Y Posortuj książki po roku wydania zaczynając od wydanej najpóźniej.
+10.X  Y  Zwróć wszystkie książki, których tytuł zaczyna się od litery “C” i były one wydane po 2007 roku.
+11.X  Y Zwróć tytuły wszystkich książek, których rok jest podzielny przez 2.
+12.X  Y Zwróć mapę, która będzie miała klucz isbn i wartość obiekt Book (Map<String, Book>).
+13.X  Y Posortuj książki po roku wydania zaczynając od wydanej najpóźniej.
 14.   Y Posortuj książki po roku wydania zaczynając od wydanej najwcześniej.
 15.   Y Podziel listę książek na 3 listy po 2 książki i zwróć z metody. (*) (bez streama)
 16.   Y Pogrupuj książki po roku wydania. Metoda powinna zwrócić Map<Integer, List<Book>> gdzie kluczem jest rok wydania a wartością lista książek wydana w tym roku. (*)

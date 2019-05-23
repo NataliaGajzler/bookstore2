@@ -41,22 +41,17 @@ public class Library {
     }
 
     static void saveToFile(List<Book> listOfBooks) {
-        Path path = Paths.get("C:/Users/natalia/Desktop/Programowanie SDA/190414_wzorceprjektowe/design-patterns-sda_ldz_18/bookstore/src/main/ListaKsiążek.csv");
-        try (BufferedWriter write = Files.newBufferedWriter(path)) {
-            //todo co tu wpisać żeby zapisac liste ksiązek, musi zapisać w takiej formie jak plik w src.
-            while (!listOfBooks.isEmpty()) {
-                for (int i = 0; i < listOfBooks.size(); i++) {
-                    listOfBooks.get(i).getIdentifier();
-                    System.out.println(";");
-                    write.write(listOfBooks.toString());
-                }
-            } catch(IOException e){
-                System.out.println("Niepoprawna ścieżka pliku");
+        Path path = Paths.get("C:/Users/natalia/Desktop/Programowanie SDA/190518_programowanieII_2/ListaKsiążek.csv");
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            for (Book book : listOfBooks) {
+                writer.write(book.encodeBook());
+                writer.newLine();
             }
         } catch (IOException e) {
-            System.out.println("Niepoprawna ścieżka do pliku");
+            System.out.println("Nie ma takiej ścieżki lub niepoprawna ścieżka");
         }
     }
+
 
     static Book createBook() {
 
@@ -65,9 +60,8 @@ public class Library {
         System.out.println("Podaj tytuł: ");
         String title = scanner.next();
 
-        System.out.println("Podaj ISBN (od 10 do 13 cyfr): ");
-        long isbn = scanner.nextLong();
-        readISBN(); // todo validate tak jak year, obsłużyć jak litery
+        long isbn = readISBN();
+         // todo validate tak jak year, obsłużyć jak litery
 
         int year = readYear(); // todo obsłużyć jak user poda litery
 
@@ -96,7 +90,7 @@ public class Library {
     private static long readISBN() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Podaj ISBN: ");
+            System.out.println("Podaj ISBN (od 10 d0 13 cyfr); ");
             String line = scanner.nextLine();
             boolean numeric = StringUtils.isNumeric(line);
 

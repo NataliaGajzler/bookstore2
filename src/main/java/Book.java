@@ -55,4 +55,14 @@ public class Book {
                 "Book ID: " + bookID + "\n" +
                 "Category ID: " + categoryID + "\n";
     }
+
+    String encodeBook() {
+        StringBuilder sb = new StringBuilder();
+        return sb.append(getTitle()).append(";")
+                .append(getIsbn()).append(";")
+                .append(getYear()).append(";")
+                .append(getBookCover()).append(";")
+                .append(getBookID()).append(";")
+                .append(getCategoryID()).append(";").toString();
+    }
 }
